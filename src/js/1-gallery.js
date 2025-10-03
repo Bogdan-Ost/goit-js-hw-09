@@ -68,8 +68,6 @@ const gallery = document.querySelector('.gallery');
 
 gallery.insertAdjacentHTML('beforeend', createGallery(images));
 
-gallery.addEventListener('click', handlerClick);
-
 function createGallery(arr) {
   return arr
     .map(
@@ -87,3 +85,11 @@ function createGallery(arr) {
     )
     .join('');
 }
+
+import SimpleLightbox from 'simplelightbox';
+
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
+new SimpleLightbox('.gallery-link', {
+  /* options */
+});
