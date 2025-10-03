@@ -87,11 +87,3 @@ function createGallery(arr) {
     )
     .join('');
 }
-
-new SimpleLightbox('.gallery', {
-  /* options */
-});
-
-import SimpleLightbox from 'simplelightbox';
-
-import 'simplelightbox/dist/simple-lightbox.min.css';
