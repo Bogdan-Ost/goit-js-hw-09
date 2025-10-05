@@ -18,10 +18,10 @@ function populateTextArea() {
   const message = localStorage.getItem('feedback-form-state');
   const messageParse = JSON.parse(message);
 
-  formData.email = messageParse.email;
-  formData.message = messageParse.message;
-
   if (message) {
+    formData.email = messageParse.email;
+    formData.message = messageParse.message;
+
     email.value = messageParse.email;
     textarea.value = messageParse.message;
   }
