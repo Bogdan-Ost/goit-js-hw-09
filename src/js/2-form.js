@@ -8,17 +8,18 @@ populateTextArea();
 form.addEventListener('input', onText);
 
 function onText(event) {
-  const message = event.target;
-  formData.email = message.form[0].value;
-  formData.message = message.form[1].value;
+  formData.email = email.value;
+  formData.message = textarea.value;
+  console.log(formData);
+
   localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 }
 
 function populateTextArea() {
   const message = localStorage.getItem('feedback-form-state');
-  const messageParse = JSON.parse(message);
 
   if (message) {
+    const messageParse = JSON.parse(message);
     formData.email = messageParse.email;
     formData.message = messageParse.message;
 
@@ -26,7 +27,6 @@ function populateTextArea() {
     textarea.value = messageParse.message;
   }
 }
-console.log(formData);
 
 form.addEventListener('submit', handlerSubmit);
 
@@ -34,7 +34,10 @@ function handlerSubmit(event) {
   event.preventDefault();
 
   const elements = event.target;
-  if (elements[0].value.trim() === '' || elements[1].value.trim() === '') {
+  if (
+    elements.email.value.trim() === '' ||
+    elements.message.value.trim() === ''
+  ) {
     return alert('Fill please all fields');
   }
   console.log(formData);
